@@ -13,7 +13,7 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new GoogleStrategy(
-    { clientID: keys.googleClientID, clientSecret: keys.googleClientSecret, callbackURL: `https://udmy-react.onrender.com/auth/google`, proxy: true },
+    { clientID: keys.googleClientID, clientSecret: keys.googleClientSecret, callbackURL: `/auth/google`, proxy: true },
     (accessToken, refreshToken, profile, done) => {
         User.findOne({ googleId: profile.id })
             .then((existingUser) => {
