@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux'; // the Provide tag is imported from here
+import { createStore, applyMiddleware } from 'redux';
+// import ReactDOM from 'react-dom'; // used in the tutorial 
+import App from './components/App';
+import reducers from './reducers';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const store = createStore( ()=> [],{}, applyMiddleware());
+const el = document.getElementById("root");
+const root= ReactDOM.createRoot(el);
+root.render(<Provider store={store}><App/></Provider>) // Provider is a pre-made components, that passes store to all Ract component within the Provider tag is there are updated to the store
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// ReactDOM.render(<App/>, document.querySelector('#root')); // used in the tutorial
