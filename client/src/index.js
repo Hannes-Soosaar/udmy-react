@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux'; // the Provide tag is imported from here
 import { createStore, applyMiddleware } from 'redux';
 // import ReactDOM from 'react-dom'; // used in the tutorial 
-import {thunk} from 'redux-thunk';
+import { thunk } from 'redux-thunk';
 
 import App from './components/App';
 import reducers from './reducers';
